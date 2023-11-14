@@ -1,9 +1,11 @@
-import { galleryItems } from './gallery-items.js';
+import { galleryItems } from "./gallery-items.js";
 
-const listEl = document.querySelector(".gallery")
+const listEl = document.querySelector(".gallery");
 
-const markup = galleryItems.map(({ description, original, preview }) => 
-    `<li class="gallery__item">
+const markup = galleryItems
+  .map(
+    ({ description, original, preview }) =>
+      `<li class="gallery__item">
     <a class="gallery__link" href="${original}" target="_blank">
       <img
         class="gallery__image"
@@ -12,13 +14,13 @@ const markup = galleryItems.map(({ description, original, preview }) =>
       />
     </a>
   </li>
-`).join("")
+`
+  )
+  .join("");
 
-listEl.insertAdjacentHTML("beforeend", markup)
+listEl.insertAdjacentHTML("beforeend", markup);
 
-const lightbox = new SimpleLightbox('.gallery a', {
-    captionsData: "alt",
-    captionDelay: 250,
+const lightbox = new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionDelay: 250,
 });
-
-lightbox.show();
